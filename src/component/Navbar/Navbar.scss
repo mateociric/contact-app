@@ -1,0 +1,27 @@
+@import '../../style/variable.scss';
+
+.nav {
+    width: 40%;
+    margin: 0.1rem auto 0;
+    border-radius: 0 0 1rem 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    line-height: 5rem;
+}
+
+a {
+    width: 100%;
+    min-width: 20rem;
+    display: inline-block;
+    font-family: $font-header;
+    font-size: $font-nav-size;
+    text-align: center;
+    text-decoration: none;
+    color: $col-white;
+    background-color: $col-header;
+
+    &:hover {
+        opacity: .75;
+    }
+}
