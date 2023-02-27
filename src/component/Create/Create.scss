@@ -1,0 +1,42 @@
+@import '../../style/variable.scss';
+
+.create-card {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    width: 50%;
+    margin-top: 5rem;
+    padding-left: 1rem;
+    border: .1rem solid $col-header;
+    font-family: $font-header;
+    font-size: $font-input-size;
+    line-height: 5rem;
+    color: $col-header;
+    outline: none;
+}
+
+button {
+    margin-top: 5rem;
+    width: 25%;
+    border: .1rem solid $col-bg;
+    font-family: $font-header;
+    font-size: $font-input-size;
+    line-height: 5rem;
+    color: $col-bg;
+    background-color: $col-card;
+    outline: none;
+    transition: all .25s;
+
+    &:hover {
+        opacity: .75;
+    }
+
+    &:active {
+        transform: scale(.95);
+    }
+}

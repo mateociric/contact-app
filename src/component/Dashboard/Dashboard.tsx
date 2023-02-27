@@ -1,11 +1,11 @@
 import React from 'react';
 import './Dashboard.scss';
-import Card from './Card/Card';
+import CreateCard from './CreateCard/CreateCard';
 
 function Dashboard() {
     return (
         <>
-            <Card />
+            <CreateCard />
         </>
     )
 }

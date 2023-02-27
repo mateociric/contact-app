@@ -1,4 +1,13 @@
-class Card {
+export type TUser = {
+    photo: string;
+    name: string;
+    surname: string;
+    phoneNumber: number;
+    emailAddress: string;
+    id: number;
+}
+
+class ContactCard {
     photo: string;
     name: string;
     surname: string;
@@ -16,4 +25,4 @@ class Card {
     }
 }
 
-export default Card;
+export default ContactCard;
