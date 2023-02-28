@@ -2,7 +2,7 @@
 
 .create-card {
     width: 60%;
-    margin: 0 auto;
+    margin: 5rem auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,7 +10,7 @@
 
 input {
     width: 50%;
-    margin-top: 5rem;
+    //margin-top: 5rem;
     padding-left: 1rem;
     border: .1rem solid $col-header;
     font-family: $font-header;
@@ -20,8 +20,19 @@ input {
     outline: none;
 }
 
+label {
+    width: 70%;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $font-header;
+    font-size: $font-input-size;
+    text-align: center;
+    color: $col-card;
+}
+
 button {
-    margin-top: 5rem;
     width: 25%;
     border: .1rem solid $col-bg;
     font-family: $font-header;
@@ -39,4 +50,8 @@ button {
     &:active {
         transform: scale(.95);
     }
+}
+
+.warning {
+    border: .1rem solid $col-card;
 }

@@ -1,0 +1,64 @@
+const validator: { [key: string]: any } = {
+    firstName: {
+        minLength: minLength(2),
+        maxLength: maxLength(20),
+    },
+    lastName: {
+        minLength: minLength(2),
+        maxLength: maxLength(20),
+    },
+    phoneNumber: {
+        minLength: minLength(9),
+        onlyNum: onlyNum,
+    },
+    emailAddress: {
+        onlyEmail: onlyEmail,
+    }
+}
+
+function minLength(length: number) {
+    return (input: HTMLInputElement) => {
+        input.className = '';
+        (input.nextElementSibling as HTMLElement).innerHTML = '';
+        if (input.value.trim().length < length) {
+            input.className = 'warning';
+            (input.nextElementSibling as HTMLElement).innerHTML = `Min. ${length} characters are required`;
+        }
+    }
+}
+function maxLength(length: number) {
+    return (input: HTMLInputElement) => {
+        if (input.value.trim().length > length) {
+            input.className = 'warning';
+            (input.nextElementSibling as HTMLElement).innerHTML = `Max. is ${length} characters`;
+        }
+    }
+}
+function onlyNum(input: HTMLInputElement) {
+    if (!input.value.match(/^[+][0-9]*$/g)) {
+        input.className = 'warning';
+        (input.nextElementSibling as HTMLElement).innerHTML = `Min. 9 numbers starting with + sign.`;
+    }
+}
+function onlyEmail(input: HTMLInputElement) {
+    input.className = '';
+    if (!input.value.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g)) {
+        input.className = 'warning';
+        (input.nextElementSibling as HTMLElement).innerHTML = `Invalid email address`;
+    }
+}
+
+function validateForm(formEl: HTMLFormElement) {
+    const arrOfFormInputs = [...formEl].filter(el => {
+        return el.tagName === 'INPUT';
+    });
+
+    arrOfFormInputs.forEach(el => {
+        const key = (el as HTMLInputElement).name;
+        for (let prop in validator[key]) {
+            console.log(validator[key][prop](el))
+        }
+    })
+}
+
+export default validateForm;
