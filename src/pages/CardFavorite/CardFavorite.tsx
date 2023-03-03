@@ -1,5 +1,5 @@
 import React from 'react';
-import './Favorite.scss';
+import 'pages/CardFavorite/CardFavorite.scss';
 
 function Favorite() {
     return (

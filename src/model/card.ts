@@ -4,24 +4,31 @@ export type TUser = {
     surname: string;
     phoneNumber: number;
     emailAddress: string;
+    isFavorite: boolean;
+    isDeleted: boolean
     id: number;
 }
 
 class ContactCard {
+
     photo: string;
     name: string;
     surname: string;
     phoneNumber: number;
     emailAddress: string;
+    isFavorite: boolean;
+    isDeleted: boolean
     id: number;
 
-    constructor(photo: string, name: string, surname: string, phoneNumber: number, emailAddress: string, id: number) {
-        this.photo = photo;
-        this.name = name;
-        this.surname = surname;
-        this.phoneNumber = phoneNumber;
-        this.emailAddress = emailAddress;
-        this.id = id;
+    constructor(userInfo: TUser) {
+        this.photo = userInfo.photo;
+        this.name = userInfo.name;
+        this.surname = userInfo.surname;
+        this.phoneNumber = userInfo.phoneNumber;
+        this.emailAddress = userInfo.emailAddress;
+        this.isFavorite = userInfo.isFavorite;
+        this.isDeleted = userInfo.isDeleted;
+        this.id = userInfo.id;
     }
 }
 

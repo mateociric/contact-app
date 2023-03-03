@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
-import Header from './component/Header/Header';
-import Navbar from './component/Navbar/Navbar';
-import Dashboard from './component/Dashboard/Dashboard';
-import Favorite from './component/Favorite/Favorite';
-import Create from './component/Create/Create';
+import { Route, Routes } from 'react-router-dom';
+import Header from 'components/Header/Header';
+import Navbar from 'components/Navbar/Navbar';
+import CardDashboard from 'pages/CardDashboard/CardDashboard';
+import CardFavorite from 'pages/CardFavorite/CardFavorite';
+import CardCreate from 'pages/CardCreate/CardCreate';
+import CardModifie from 'pages/CardModifie/CardModifie';
 
 function App() {
   return (
@@ -13,9 +14,11 @@ function App() {
       <Navbar />
       <main>
         <Routes>
-          <Route path='/*' element={<Dashboard />}></Route>
-          <Route path='/Favorite' element={<Favorite />}></Route>
-          <Route path='/Create' element={<Create />}></Route>
+          <Route path='/*' element={<CardDashboard />}></Route>
+          <Route path='/CardFavorite' element={<CardFavorite />}></Route>
+          <Route path='/CardCreate' element={<CardCreate />}></Route>
+          <Route path='/CardModifie' element={<CardModifie />}></Route>
+          <Route path='/CardModifie/:id' element={<CardModifie />}></Route>
         </Routes>
       </main>
     </>

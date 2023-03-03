@@ -1,4 +1,4 @@
-@import '../../style/variable.scss';
+@import 'style/variable.scss';
 
 .create-card {
     width: 60%;
@@ -10,7 +10,6 @@
 
 input {
     width: 50%;
-    //margin-top: 5rem;
     padding-left: 1rem;
     border: .1rem solid $col-header;
     font-family: $font-header;

@@ -1,19 +1,19 @@
 import React from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
-import './CreateCard.scss';
+import 'components/FirstCard/FirstCard.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
-import Create from '../../Create/Create';
+import CardCreate from 'pages/CardCreate/CardCreate';
 
 function CreateCard() {
     const navigate = useNavigate()
     return (
         <>
-            <div className='card' onClick={() => navigate('/Create')}>
-                <FontAwesomeIcon icon={faCirclePlus} className='icon' />
+            <div className='card' onClick={() => navigate('/CardCreate')}>
+                <FontAwesomeIcon icon={faCirclePlus} className='iconFaCirclePlus' />
             </div>
             <Routes>
-                <Route path='/Create' element={<Create />}></Route>
+                <Route path='/CardCreate' element={<CardCreate />}></Route>
             </Routes>
         </>
     )

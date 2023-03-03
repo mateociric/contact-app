@@ -1,7 +1,7 @@
-@import '../../../style/variable.scss';
+@import 'style/variable.scss';
 
 .card {
-    width: 20rem;
+    width: 100%;
     aspect-ratio: 1;
     background-color: $col-card;
     transition: all .25s;
@@ -19,7 +19,7 @@
         transform: scale(.90);
     }
 
-    &:hover .icon {
+    &:hover .iconFaCirclePlus {
         width: 6rem;
         height: 6rem;
 
@@ -27,7 +27,7 @@
 
 }
 
-.icon {
+.iconFaCirclePlus {
     width: 5rem;
     height: 5rem;
     color: $col-bg;

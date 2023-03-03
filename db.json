@@ -1,5 +1,22 @@
-[
+{
+  "person": [
     {
-        "person": {}
+      "photo": "",
+      "name": "mateo",
+      "surname": "ciric",
+      "phoneNumber": "+385911585466",
+      "emailAddress": "mateo@gmail.com",
+      "isFavorite": false,
+      "id": 1
+    },
+    {
+      "photo": "",
+      "name": "mateo",
+      "surname": "ciric",
+      "phoneNumber": "+385911585466",
+      "emailAddress": "mateo@gmail.com",
+      "isFavorite": false,
+      "id": 2
     }
-]
+  ]
+}
