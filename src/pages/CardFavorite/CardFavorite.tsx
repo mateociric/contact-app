@@ -1,12 +1,27 @@
-import React from 'react';
-import 'pages/CardFavorite/CardFavorite.scss';
+import React, { useContext } from 'react';
+import Card from 'components/Card/Card';
+import ContactCard from 'model/model-card';
+import ctxStoreValues from 'store/store-context';
 
-function Favorite() {
+function CardFavorite() {
+
+    const ctxValues = useContext(ctxStoreValues);
+
+    const filteredCards = ctxValues.usersList.filter((el, index) => {
+        return el.isFavorite
+    });
+    const cardsInFavorite = filteredCards.map((el, index) => {
+        return <Card
+            userInfo={new ContactCard(el)}
+            key={index}
+        />
+    });
+
     return (
-        <>
-            FAVORITE
-        </>
+        <section className='dashboard'>
+            {cardsInFavorite}
+        </section>
     )
 }
 
-export default Favorite;
+export default CardFavorite;

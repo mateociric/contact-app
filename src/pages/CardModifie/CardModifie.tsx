@@ -1,8 +1,8 @@
 import React from 'react';
 import 'pages/CardModifie/CardModifie.scss';
 
-function Edit() {
-    return <>EDIT</>
+function CardModifie() {
+    return <>CARD MODIFIE</>
 }
 
-export default Edit;
+export default CardModifie;

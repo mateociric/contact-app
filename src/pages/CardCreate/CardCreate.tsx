@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import validateForm from 'pages/CardCreate/utility/form-validate';
-import ctxStoreValues from 'store/context-store';
+import ctxStoreValues from 'store/store-context';
 import 'pages/CardCreate/CardCreate.scss';
+import { TUser } from 'model/model-card';
 
-function Create() {
+function CreateCard() {
 
     const ctxValues = useContext(ctxStoreValues);
 
@@ -11,16 +12,17 @@ function Create() {
         event.preventDefault();
         const isEveryInputOk = validateForm(document.querySelector('form')!);
         if (isEveryInputOk) {
-            const user = {
+            const user: TUser = {
                 photo: '',
                 name: event.target['firstName'].value,
                 surname: event.target['lastName'].value,
                 phoneNumber: event.target['phoneNumber'].value,
                 emailAddress: event.target['emailAddress'].value,
                 isFavorite: false,
-                id: ctxValues.listUsers.length
+                isDeleted: false,
+                id: ctxValues.usersList.length
             }
-            ctxValues.updateUsersList(user);
+            ctxValues.addNewUser(user);
         }
     }
 
@@ -40,4 +42,4 @@ function Create() {
     )
 }
 
-export default Create;
+export default CreateCard;

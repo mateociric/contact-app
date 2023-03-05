@@ -17,7 +17,7 @@ class ContactCard {
     phoneNumber: number;
     emailAddress: string;
     isFavorite: boolean;
-    isDeleted: boolean
+    isDeleted: boolean;
     id: number;
 
     constructor(userInfo: TUser) {

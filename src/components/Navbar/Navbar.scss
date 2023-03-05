@@ -2,17 +2,17 @@
 
 .nav {
     width: 40%;
-    clip-path: polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%);
-    margin: 0rem auto;
-    border-radius: 0 0 1rem 1rem;
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     justify-content: center;
     line-height: 5rem;
+    clip-path: polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%);
+    background-color: $col-header;
 }
 
 a {
-    width: 100%;
+    width: 50%;
     min-width: 20rem;
     display: inline-block;
     font-family: $font-header;

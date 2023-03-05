@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Header from 'components/Header/Header';
 import Navbar from 'components/Navbar/Navbar';
+import Searchbar from 'components/Searchbar/Searchbar';
 import CardDashboard from 'pages/CardDashboard/CardDashboard';
 import CardFavorite from 'pages/CardFavorite/CardFavorite';
 import CardCreate from 'pages/CardCreate/CardCreate';
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <Navbar />
       <main>
+        <Searchbar />
         <Routes>
           <Route path='/*' element={<CardDashboard />}></Route>
           <Route path='/CardFavorite' element={<CardFavorite />}></Route>

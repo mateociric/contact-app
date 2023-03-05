@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import CardCreate from 'pages/CardCreate/CardCreate';
 
-function CreateCard() {
+function FirstCard() {
     const navigate = useNavigate()
     return (
         <>
@@ -19,4 +19,4 @@ function CreateCard() {
     )
 }
 
-export default CreateCard;
+export default FirstCard;

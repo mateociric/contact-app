@@ -1,0 +1,8 @@
+.dashboard {
+    width: 100%;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    background-color: #2A3B39;
+}
