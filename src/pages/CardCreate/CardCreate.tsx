@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useParams } from 'react-router-dom';
 import validateForm from 'pages/CardCreate/utility/form-validate';
 import ctxStoreValues from 'store/store-context';
 import 'pages/CardCreate/CardCreate.scss';
@@ -20,7 +21,7 @@ function CreateCard() {
                 emailAddress: event.target['emailAddress'].value,
                 isFavorite: false,
                 isDeleted: false,
-                id: ctxValues.usersList.length
+                id: Math.random()
             }
             ctxValues.addNewUser(user);
         }

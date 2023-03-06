@@ -7,13 +7,14 @@ function CardFavorite() {
 
     const ctxValues = useContext(ctxStoreValues);
 
-    const filteredCards = ctxValues.usersList.filter((el, index) => {
-        return el.isFavorite
+    const filteredCards = ctxValues.usersList.filter(el => {
+        return el.isFavorite;
     });
-    const cardsInFavorite = filteredCards.map((el, index) => {
+    
+    const cardsInFavorite = filteredCards.map((el) => {
         return <Card
             userInfo={new ContactCard(el)}
-            key={index}
+            key={el.id}
         />
     });
 

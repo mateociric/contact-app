@@ -7,7 +7,7 @@ function Navbar() {
     return (
         <nav className='nav'>
             <NavLink to='/'>Dashboard</NavLink>
-            <NavLink to='/CardFavorite'>Favorite</NavLink>
+            <NavLink to='CardFavorite'>Favorite</NavLink>
         </nav>
     )
 }

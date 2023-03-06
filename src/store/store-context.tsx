@@ -5,6 +5,7 @@ import TCtxValues from 'model/model-store-context';
 const ctxValues: TCtxValues = {
     usersList: [],
     addNewUser: () => { },
+    removeUser: () => { },
     updateUserList: () => { },
     searchBarValue: '',
     getSearchBarValue: () => { }
@@ -21,15 +22,24 @@ export function CtxValuesProvider(props: { children: any }) {
             return [...prevState, user];
         });
     }
+
+    function removeUser(id: number) {
+        const modifiedArr = usersList.filter(el => {
+            return el.id !== id;
+        });
+        setUsersList(() => modifiedArr);
+    }
+
     function updateUserList(id: number, isFavorite: boolean) {
-        const modifiedArr = usersList.map((el, index) => {
-            if (index === id) {
-                el.isFavorite = isFavorite;
+        const modifiedArr = usersList.map(el => {
+            if (el.id === id) {
+                el.isFavorite = isFavorite
             }
             return el
         });
-        setUsersList(modifiedArr);
+        setUsersList(() => modifiedArr);
     }
+
     function getSearchBarValue(str: string) {
         setSearchBar(str);
     }
@@ -39,6 +49,7 @@ export function CtxValuesProvider(props: { children: any }) {
             <ctxStoreValues.Provider value={{
                 usersList: usersList,
                 addNewUser: addNewUser,
+                removeUser: removeUser,
                 updateUserList: updateUserList,
                 searchBarValue: searchBar,
                 getSearchBarValue

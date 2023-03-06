@@ -1,0 +1,45 @@
+@import 'style/variable.scss';
+
+.modaloverlay {
+    margin: 0 auto;
+    width: 60rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 30%;
+    left: 30%;
+    z-index: 2;
+    font-family: $font-header;
+    font-size: $font-input-size;
+    color: white;
+    background-color: #2A3B39;
+    text-align: center;
+}
+
+.modaloverlay__header {
+    background-color: $col-header;
+    font-size: 2rem;
+    line-height: 5rem;
+}
+
+.modaloverlay__text {
+    font-size: $font-input-size;
+    line-height: 8rem;
+}
+
+.modaloverlay__card {
+    display: flex;
+    flex-direction: column;
+    background-color: $col-card;
+}
+
+.modaloverlay__footer {
+    padding-bottom: 2rem;
+}
+
+button {
+    border: none;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}

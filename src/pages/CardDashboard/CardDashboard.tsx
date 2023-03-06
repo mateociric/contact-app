@@ -9,21 +9,21 @@ function CardDashboard() {
 
     const ctxValues = useContext(ctxStoreValues);
 
-    const cardsInDashboard = ctxValues.usersList.map((el, index) => {
+    const cardsInDashboard = ctxValues.usersList.map((el) => {
         return <Card
             userInfo={new ContactCard(el)}
-            key={index}
+            key={el.id}
         />
     });
 
-    const filteringCards = ctxValues.usersList.filter(el => {
+    const filteringCards = ctxValues.usersList.filter( (el, index) => {
         return (el.name + el.surname).toLowerCase().startsWith(ctxValues.searchBarValue.toLowerCase());
     })
 
-    const cardsInDashboardFiltered = filteringCards.map((el, index) => {
+    const cardsInDashboardFiltered = filteringCards.map((el) => {
         return <Card
             userInfo={new ContactCard(el)}
-            key={index}
+            key={el.id}
         />
     });
 
