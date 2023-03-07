@@ -7,7 +7,7 @@ function CardFavorite() {
 
     const ctxValues = useContext(ctxStoreValues);
 
-    const filteredCards = ctxValues.usersList.filter(el => {
+    const filteredCards = ctxValues.values.usersList.filter(el => {
         return el.isFavorite;
     });
     

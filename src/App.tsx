@@ -21,7 +21,7 @@ function App() {
           <Route path='/CardFavorite/*' element={<CardFavorite />}></Route>
           <Route path='/CardCreate/*' element={<CardCreate />}></Route>
           <Route path='/CardModifie/*' element={<CardModifie />}></Route>
-          <Route path='/CardModifie/:id' element={<CardModifie />}></Route>
+          <Route path='/CardModifie/:fullName/:id' element={<CardModifie />}></Route>
         </Routes>
       </main >
     </>

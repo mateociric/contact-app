@@ -10,50 +10,53 @@ import ctxStoreValues from 'store/store-context';
 
 function Card(props: { userInfo: TUser }) {
 
-    const [isFavorite, setIsFavorite] = useState(props.userInfo.isFavorite);
-    const [isTrash, setIsTrash] = useState(props.userInfo.isDeleted);
     const navigate = useNavigate();
     const ctxValues = useContext(ctxStoreValues);
 
-    useEffect(() => {
-        /* to get current value of the useState hook (useState is async!),
-        otherwise you can flip value !isFavorite without useing useEffect */
-        ctxValues.updateUserList(props.userInfo.id, isFavorite);
-    }, [isFavorite]);
-
-    const isFavoriteMarked = isFavorite ? 'iconActive iconEdit' : 'iconEdit';
-    const isTrashMarked = isTrash ? 'iconActive iconEdit' : 'iconEdit';
+    const isFavoriteMarked = props.userInfo.isFavorite ? 'iconActive iconEdit' : 'iconEdit';
+    const isDelete = props.userInfo.isDelete ? 'iconActive iconEdit' : 'iconEdit';
     const trashIcon = <FontAwesomeIcon
         icon={faTrash}
         onClick={(event) => {
             event.stopPropagation();
-            setIsTrash(() => !isTrash);
+            ctxValues.updateUserList.changeUserInfo('delete', props.userInfo);
         }}
-        className={isTrashMarked}
+        className={isDelete}
     />
     const pencilIcon = <FontAwesomeIcon
         icon={faPencil}
         className='iconEdit'
+        onClick={(event) => {
+            event.stopPropagation();
+            //ctxValues.updateUserList.changeUserInfo()
+            navigate(`/CardModifie/${props.userInfo.fullName}`)
+        }
+        }
     />
     const heartIcon = <FontAwesomeIcon
         icon={faHeart}
         onClick={(event) => {
             event.stopPropagation();
-            setIsFavorite(!isFavorite);
+            ctxValues.updateUserList.changeUserInfo('favorite', props.userInfo);
         }}
         className={isFavoriteMarked}
+
     />
     const userPhoto = props.userInfo.photo || <FontAwesomeIcon icon={faUser} className='iconFaUser' />
 
     function removeModalHandler() {
-        setIsTrash(() => !isTrash);
+        ctxValues.updateUserList.changeUserInfo('delete', props.userInfo);
     }
 
     return (
         <>
-            {isTrash && <ModalWarning onClick={removeModalHandler} userInfo={props.userInfo} />}
+            {props.userInfo.isDelete && <ModalWarning onClick={removeModalHandler} userInfo={props.userInfo} />}
             <div
-                onClick={() => navigate(`/CardModifie/${props.userInfo.id}`)}
+                onClick={() => {
+                    //ctxValues.updateUserList.changeUserInfo()
+                    navigate(`/CardModifie/${props.userInfo.fullName}/${props.userInfo.id}`)
+                }
+                }
                 className='card'
             >
                 <div className='card__edit-icon'>
@@ -62,7 +65,7 @@ function Card(props: { userInfo: TUser }) {
                 {userPhoto}
                 <section className='card__details'>
                     <p>{props.userInfo.name} {props.userInfo.surname}</p>
-                    <p>{props.userInfo.id}</p>
+                    <p>{props.userInfo.phoneNumber}</p>
                     <p>{props.userInfo.emailAddress}</p>
                 </section>
             </div>

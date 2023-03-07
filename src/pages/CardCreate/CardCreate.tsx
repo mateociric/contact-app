@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { useParams } from 'react-router-dom';
-import validateForm from 'pages/CardCreate/utility/form-validate';
+import validateForm from 'pages/utility/form-validate';
 import ctxStoreValues from 'store/store-context';
+import Form from 'components/Form/Form';
 import 'pages/CardCreate/CardCreate.scss';
 import { TUser } from 'model/model-card';
 
@@ -20,26 +20,15 @@ function CreateCard() {
                 phoneNumber: event.target['phoneNumber'].value,
                 emailAddress: event.target['emailAddress'].value,
                 isFavorite: false,
-                isDeleted: false,
+                isDelete: false,
                 id: Math.random()
             }
-            ctxValues.addNewUser(user);
+            ctxValues.updateUserList.addUser(user);
         }
     }
 
     return (
-        <form onSubmit={submitHandler} className='create-card'>
-            <img src="" alt="" />
-            <input type="text" name='firstName' placeholder='first name' />
-            <label></label>
-            <input type="text" name='lastName' placeholder='last name' />
-            <label></label>
-            <input type="text" name='phoneNumber' placeholder='phone number' />
-            <label></label>
-            <input type="text" name='emailAddress' placeholder='email address' />
-            <label></label>
-            <button type='submit'>Add User</button>
-        </form>
+        <Form onSubmit={submitHandler} buttonText={'Add User'}></Form>
     )
 }
 

@@ -15,7 +15,7 @@ function ModalOverlay(props: { onClick: Function, userInfo: TUser }) {
                 <button onClick={
                     () => {
                         props.onClick();
-                        ctxValues.removeUser(props.userInfo.id)
+                        ctxValues.updateUserList.removeUser(props.userInfo)
                     }}
                 >YES</button>
                 <button onClick={() => { props.onClick() }}>NO</button>

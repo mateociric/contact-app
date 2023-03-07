@@ -1,59 +1,59 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { TUser } from 'model/model-card';
 import TCtxValues from 'model/model-store-context';
+import { addUser, removeUser, changeUserInfo, getSearchBarValue } from 'store/utility/ctx-functions'
 
 const ctxValues: TCtxValues = {
-    usersList: [],
-    addNewUser: () => { },
-    removeUser: () => { },
-    updateUserList: () => { },
-    searchBarValue: '',
-    getSearchBarValue: () => { }
+    values: {
+        user: {} as TUser,
+        usersList: [],
+        searchBarValue: '',
+    },
+    updateUserList: {
+        addUser: () => { },
+        removeUser: () => { },
+        changeUserInfo: () => { },
+    },
+    misc: {
+        getSearchBarValue: () => { },
+    },
 }
+
 const ctxStoreValues = React.createContext(ctxValues);
 
 export function CtxValuesProvider(props: { children: any }) {
 
+    const [user, setUser] = useState({} as TUser);
     const [usersList, setUsersList] = useState<TUser[]>([]);
-    const [searchBar, setSearchBar] = useState('');
+    const [searchBarValue, setSearchBarValue] = useState('');
 
-    function addNewUser(user: TUser) {
-        setUsersList((prevState) => {
-            return [...prevState, user];
-        });
-    }
-
-    function removeUser(id: number) {
-        const modifiedArr = usersList.filter(el => {
-            return el.id !== id;
-        });
-        setUsersList(() => modifiedArr);
-    }
-
-    function updateUserList(id: number, isFavorite: boolean) {
-        const modifiedArr = usersList.map(el => {
-            if (el.id === id) {
-                el.isFavorite = isFavorite
-            }
-            return el
-        });
-        setUsersList(() => modifiedArr);
-    }
-
-    function getSearchBarValue(str: string) {
-        setSearchBar(str);
-    }
+    useEffect( () => {
+        // const modifiedArrForId = usersList.map((el, index) => {
+        //     el.id = index;
+        //     return el
+        // })
+        //setUsersList(modifiedArrForId);
+    }, [usersList]);
 
     return (
         <>
             <ctxStoreValues.Provider value={{
-                usersList: usersList,
-                addNewUser: addNewUser,
-                removeUser: removeUser,
-                updateUserList: updateUserList,
-                searchBarValue: searchBar,
-                getSearchBarValue
-            }}>
+                values: {
+                    user,
+                    usersList,
+                    searchBarValue
+                },
+                updateUserList: {
+                    addUser: addUser(setUsersList),
+                    removeUser: removeUser(usersList, setUsersList),
+                    changeUserInfo: changeUserInfo(usersList, setUsersList),
+                },
+                misc: {
+                    getSearchBarValue: getSearchBarValue(setSearchBarValue),
+                    //setNewId
+                },
+            }}
+            >
                 {props.children}
             </ctxStoreValues.Provider>
         </>

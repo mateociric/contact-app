@@ -11,7 +11,7 @@ function Seacrbar() {
     function inputChangeHandler(event: any) {
         //removing white spaces dynamically
         event.target.value = event.target.value.replace(/^[ \t]+|[ \t]+$/gm, "")
-        ctxValues.getSearchBarValue(event.target.value);
+        ctxValues.misc.getSearchBarValue(event.target.value);
     }
 
     return (
@@ -21,7 +21,8 @@ function Seacrbar() {
                 style={currLocation.pathname === '/' ? { visibility: 'visible' } : { visibility: 'hidden' }}
                 type="text"
                 placeholder='serach for user'
-                className='searchbar__input' />
+                className='searchbar__input'
+            />
         </div>
     )
 }

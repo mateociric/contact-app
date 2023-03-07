@@ -1,12 +1,19 @@
 import { TUser } from "model/model-card";
 
 type TCtxValues = {
-    usersList: TUser[],
-    addNewUser: Function,
-    removeUser: Function,
-    updateUserList: Function,
-    searchBarValue: string,
-    getSearchBarValue: Function,
+    values: {
+        user: TUser,
+        usersList: TUser[],
+        searchBarValue: string,
+    }
+    updateUserList: {
+        addUser: Function,
+        removeUser: Function,
+        changeUserInfo: Function,
+    }
+    misc: {
+        getSearchBarValue: Function,
+    }
 }
 
 export default TCtxValues;

@@ -9,18 +9,18 @@ function CardDashboard() {
 
     const ctxValues = useContext(ctxStoreValues);
 
-    const cardsInDashboard = ctxValues.usersList.map((el) => {
+    const cardsInDashboard = ctxValues.values.usersList.map((el) => {
         return <Card
             userInfo={new ContactCard(el)}
             key={el.id}
         />
     });
 
-    const filteringCards = ctxValues.usersList.filter( (el, index) => {
-        return (el.name + el.surname).toLowerCase().startsWith(ctxValues.searchBarValue.toLowerCase());
+    const filteredCards = ctxValues.values.usersList.filter((el) => {
+        return (el.name + el.surname).toLowerCase().startsWith(ctxValues.values.searchBarValue.toLowerCase());
     })
 
-    const cardsInDashboardFiltered = filteringCards.map((el) => {
+    const cardsInDashboardFiltered = filteredCards.map((el) => {
         return <Card
             userInfo={new ContactCard(el)}
             key={el.id}
@@ -30,7 +30,7 @@ function CardDashboard() {
     return (
         <section className='dashboard'>
             <FirstCard />
-            {ctxValues.searchBarValue ? cardsInDashboardFiltered : cardsInDashboard}
+            {ctxValues.values.searchBarValue ? cardsInDashboardFiltered : cardsInDashboard}
         </section>
     )
 }
