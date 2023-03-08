@@ -2,9 +2,10 @@ import { TUser } from "model/model-card";
 
 type TCtxValues = {
     values: {
-        user: TUser,
+        userForModifie: TUser,
         usersList: TUser[],
         searchBarValue: string,
+        numOfDeletedCards: number,
     }
     updateUserList: {
         addUser: Function,
@@ -13,6 +14,8 @@ type TCtxValues = {
     }
     misc: {
         getSearchBarValue: Function,
+        setNumOfDeletedCards: Function,
+        getUserForModifie: Function,
     }
 }
 

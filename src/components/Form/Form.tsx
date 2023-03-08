@@ -6,7 +6,21 @@ function Form(props: { onSubmit: React.FormEventHandler, buttonText: string, use
 
     return (
         <form onSubmit={props.onSubmit} className='form'>
-            <img src="" alt="" />
+            <div className='form__photo-upload' >
+                <input onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                    const file = (event.target.files as any)[0];
+                    if (file) {
+                        const blobURL = window.URL.createObjectURL(file);
+                        const img = document.querySelector('img')!;
+                        img.addEventListener('load', () => {
+                            URL.revokeObjectURL(file);
+                        });
+                        img.src = blobURL;
+                    }
+                }
+                } type="file" accept='image/*'/>
+                <img src='' alt="" />
+            </div>
             <input type="text" name='firstName' placeholder='first name' defaultValue={props.userInfo?.name} />
             <label></label>
             <input type="text" name='lastName' placeholder='last name' defaultValue={props.userInfo?.surname} />

@@ -21,7 +21,8 @@ function CreateCard() {
                 emailAddress: event.target['emailAddress'].value,
                 isFavorite: false,
                 isDelete: false,
-                id: Math.random()
+                //to avoid same id during deleting crads 
+                id: ctxValues.values.usersList.length + ctxValues.values.numOfDeletedCards,
             }
             ctxValues.updateUserList.addUser(user);
         }

@@ -8,6 +8,34 @@
     align-items: center;
 }
 
+.form__photo-upload {
+    width: 12rem;
+    margin-bottom: 3rem;
+    aspect-ratio: 1;
+    position: relative;
+    clip-path: circle(50% at 50% 50%);
+    background-color: rgb(202, 202, 202);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    & input {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        opacity: 0;
+        z-index: 1;
+    }
+
+    & img {
+        transform: scale(.5);
+        aspect-ratio: 1;
+        position: absolute;
+    }
+
+}
+
 label {
     width: 70%;
     height: 4rem;

@@ -28,8 +28,8 @@ function Card(props: { userInfo: TUser }) {
         className='iconEdit'
         onClick={(event) => {
             event.stopPropagation();
-            //ctxValues.updateUserList.changeUserInfo()
-            navigate(`/CardModifie/${props.userInfo.fullName}`)
+            ctxValues.misc.getUserForModifie(props.userInfo);
+            navigate(`/CardModifie/${props.userInfo.fullName}/${props.userInfo.id}`)
         }
         }
     />
@@ -53,7 +53,7 @@ function Card(props: { userInfo: TUser }) {
             {props.userInfo.isDelete && <ModalWarning onClick={removeModalHandler} userInfo={props.userInfo} />}
             <div
                 onClick={() => {
-                    //ctxValues.updateUserList.changeUserInfo()
+                    ctxValues.misc.getUserForModifie(props.userInfo);
                     navigate(`/CardModifie/${props.userInfo.fullName}/${props.userInfo.id}`)
                 }
                 }
@@ -65,13 +65,10 @@ function Card(props: { userInfo: TUser }) {
                 {userPhoto}
                 <section className='card__details'>
                     <p>{props.userInfo.name} {props.userInfo.surname}</p>
-                    <p>{props.userInfo.phoneNumber}</p>
+                    <p>{props.userInfo.id}</p>
                     <p>{props.userInfo.emailAddress}</p>
                 </section>
             </div>
-            <Routes>
-                <Route path='/CardModifie' element={<CardModifie />}></Route>
-            </Routes>
         </>
     )
 }

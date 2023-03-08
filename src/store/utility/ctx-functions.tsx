@@ -42,10 +42,4 @@ function changeUserInfo(usersList: TUser[], setUsersList: Function) {
     }
 }
 
-function getSearchBarValue(setSearchBarVal: Function) {
-    return (str: string) => {
-        setSearchBarVal(str);
-    }
-}
-
-export { addUser, removeUser, changeUserInfo, getSearchBarValue }
+export { addUser, removeUser, changeUserInfo }
