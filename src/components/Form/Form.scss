@@ -1,26 +1,25 @@
 @import 'style/variable.scss';
+@import 'style/utility.scss';
 
 .form {
     width: 60%;
-    margin: 0rem auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: -7rem auto;
 }
 
 .form__photo-upload {
     width: 12rem;
     margin-bottom: 3rem;
     aspect-ratio: 1;
-    position: relative;
-    clip-path: circle(50% at 50% 50%);
-    background-color: rgb(202, 202, 202);
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+
     align-items: center;
 
+    position: relative;
+
+    clip-path: circle(50% at 50% 50%);
+    background-color: rgb(202, 202, 202);
+
     & input {
+        //for uploading photo
         width: 100%;
         height: 100%;
         position: absolute;
@@ -29,25 +28,13 @@
     }
 
     & img {
-        transform: scale(.5);
         aspect-ratio: 1;
         position: absolute;
+        transform: scale(.5);
     }
 
 }
 
-label {
-    width: 70%;
-    height: 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: $font-header;
-    font-size: $font-input-size;
-    text-align: center;
-    color: $col-card;
-}
-
 .warning {
-    border: .1rem solid $col-card;
+    border: .1rem solid $col-red;
 }

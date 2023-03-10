@@ -17,9 +17,9 @@ function ModalOverlay(props: { onClick: Function, userInfo: TUser }) {
                         props.onClick();
                         ctxValues.updateUserList.removeUser(props.userInfo);
                         ctxValues.misc.setNumOfDeletedCards();
-                    }}
+                    }} className='modaloverlay__footer__button'
                 >YES</button>
-                <button onClick={() => { props.onClick() }}>NO</button>
+                <button onClick={() => { props.onClick() }} className='modaloverlay__footer__button'>NO</button>
             </footer>
         </div>
     )

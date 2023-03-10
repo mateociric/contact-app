@@ -5,29 +5,40 @@ body {
 
 main {
     width: 60%;
-    margin: 0 auto 0;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: $col-bg;
 }
 
 input {
     width: 50%;
     padding-left: 1rem;
-    border: .1rem solid $col-header;
-    font-family: $font-header;
-    font-size: $font-input-size;
+    border: .1rem solid $col-black;
+    font-family: $font-main;
+    font-size: $fsize-normal;
     line-height: 5rem;
-    color: $col-header;
+    color: $col-black;
     outline: none;
+}
+
+label {
+    width: 70%;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $font-main;
+    font-size: $fsize-normal;
+    text-align: center;
+    color: $col-red;
 }
 
 button {
     width: 25%;
     border: .1rem solid $col-bg;
-    font-family: $font-header;
-    font-size: $font-input-size;
+    font-family: $font-main;
+    font-size: $fsize-normal;
     line-height: 5rem;
     color: $col-bg;
     background-color: $col-card;
@@ -35,10 +46,12 @@ button {
     transition: all .25s;
 
     &:hover {
-        opacity: .75;
+        cursor: pointer;
+        box-shadow: 0 0 .5rem 0 #000000bf;
     }
 
     &:active {
         transform: scale(.95);
+        box-shadow: none;
     }
 }

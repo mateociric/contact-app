@@ -17,7 +17,7 @@ function CardDashboard() {
     });
 
     const filteredCards = ctxValues.values.usersList.filter((el) => {
-        return (el.name + el.surname).toLowerCase().startsWith(ctxValues.values.searchBarValue.toLowerCase());
+        return (el.firstName + el.lastName).toLowerCase().startsWith(ctxValues.values.searchBarValue.toLowerCase());
     })
 
     const cardsInDashboardFiltered = filteredCards.map((el) => {
@@ -28,7 +28,7 @@ function CardDashboard() {
     });
 
     return (
-        <section className='dashboard'>
+        <section className='dashboard grid'>
             <FirstCard />
             {ctxValues.values.searchBarValue ? cardsInDashboardFiltered : cardsInDashboard}
         </section>

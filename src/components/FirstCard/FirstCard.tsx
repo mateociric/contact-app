@@ -8,8 +8,8 @@ function FirstCard() {
     const navigate = useNavigate()
     return (
         <>
-            <div className='card' onClick={() => navigate('/CardCreate')}>
-                <FontAwesomeIcon icon={faCirclePlus} className='iconFaCirclePlus' />
+            <div className='first-card' onClick={() => navigate('/CardCreate')}>
+                <FontAwesomeIcon icon={faCirclePlus} className='iconFaCirclePlus fa-icon-center' />
             </div>
         </>
     )

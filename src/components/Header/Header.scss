@@ -1,15 +1,17 @@
 @import 'style/variable.scss';
 
 .header {
-    width: 100%;
+    width: 60%;
+    margin: 0 auto;
     text-align: center;
     background-color: $col-header;
+    box-shadow: 0 0.1rem 1.3rem -0.1rem #000000bf;
 }
 
 .header__title {
-    line-height: 8rem;
-    font-size: $font-header-size;
-    font-family: $font-header;
+    line-height: 7rem;
+    font-size: 3rem;
+    font-family: $font-main;
     color: $col-white;
 }
 

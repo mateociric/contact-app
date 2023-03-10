@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import validateForm from 'pages/utility/form-validate';
 import ctxStoreValues from 'store/store-context';
 import Form from 'components/Form/Form';
-import 'pages/CardCreate/CardCreate.scss';
 import { TUser } from 'model/model-card';
 
 function CreateCard() {
@@ -14,9 +13,9 @@ function CreateCard() {
         const isEveryInputOk = validateForm(document.querySelector('form')!);
         if (isEveryInputOk) {
             const user: TUser = {
-                photo: '',
-                name: event.target['firstName'].value,
-                surname: event.target['lastName'].value,
+                photo: (document.querySelector('img') as HTMLImageElement).src,
+                firstName: event.target['firstName'].value,
+                lastName: event.target['lastName'].value,
                 phoneNumber: event.target['phoneNumber'].value,
                 emailAddress: event.target['emailAddress'].value,
                 isFavorite: false,

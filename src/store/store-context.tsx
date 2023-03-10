@@ -31,6 +31,8 @@ export function CtxValuesProvider(props: { children: any }) {
     const [searchBarValue, setSearchBarValue] = useState('');
     const [numOfDeletedCards, setNumOfDeletedCards] = useState(0);
 
+    console.log(userForModifie);
+
     return (
         <>
             <ctxStoreValues.Provider value={{

@@ -1,23 +1,26 @@
 @import 'style/variable.scss';
+@import 'style/utility.scss';
 
 .card {
     width: 100%;
     aspect-ratio: 1;
-    background-color: $col-card;
-    transition: all .25s;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    //to align fa icon vertically and horizontally
+    position: relative;
 
-    font-family: $font-header;
-    font-size: $font-input-size;
-    text-align: center;
-    color: $col-bg;
+    font-family: $font-main;
+    font-size: $fsize-normal;
+    color: $col-white;
+
+    background-color: $col-card;
+    transition: all .25s;
 
     &:hover {
-        opacity: .9;
+        box-shadow: 0 0 .8rem 0 #000000bf;
+        cursor: pointer;
     }
 
     &:hover .card__edit-icon {
@@ -29,20 +32,33 @@
     }
 }
 
-.card__details {
-    margin-top: 2rem;
-}
-
 .card__edit-icon {
     width: 100%;
-    margin-bottom: 3rem;
     opacity: 0;
+
     display: flex;
     justify-content: space-around;
     align-items: center;
-    color: $col-header;
+
+    height: 5rem;
+
     cursor: pointer;
     transition: all .25s;
+}
+
+.card__photo {
+    width: 6rem;
+    aspect-ratio: 1;
+    border-radius: 100%;
+
+    object-fit: cover;
+    clip-path: circle(50% at 50% 50%);
+}
+
+.card__details {
+    width: 100%;
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
 .iconEdit {
@@ -51,11 +67,11 @@
 }
 
 .iconActive {
-    color: $col-bg;
+    color: $col-black;
 }
 
 .iconFaUser {
     width: 5rem;
     height: 5rem;
-    color: $col-bg;
+    color: $col-white;
 }

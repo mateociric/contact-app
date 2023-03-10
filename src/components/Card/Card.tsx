@@ -1,11 +1,11 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { Route, Routes, useNavigate } from 'react-router-dom';
-import CardModifie from 'pages/CardModifie/CardModifie'
+import React, { useContext } from 'react'
+import { useNavigate } from 'react-router-dom';
 import ModalWarning from 'components/ModalWarning/ModalWarning';
 import { TUser } from 'model/model-card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPencil, faHeart, faUser } from '@fortawesome/free-solid-svg-icons';
 import 'components/Card/Card.scss';
+import 'style/utility.scss';
 import ctxStoreValues from 'store/store-context';
 
 function Card(props: { userInfo: TUser }) {
@@ -38,15 +38,16 @@ function Card(props: { userInfo: TUser }) {
         onClick={(event) => {
             event.stopPropagation();
             ctxValues.updateUserList.changeUserInfo('favorite', props.userInfo);
+            console.log(props.userInfo.photo);
         }}
         className={isFavoriteMarked}
-
     />
-    const userPhoto = props.userInfo.photo || <FontAwesomeIcon icon={faUser} className='iconFaUser' />
 
     function removeModalHandler() {
         ctxValues.updateUserList.changeUserInfo('delete', props.userInfo);
     }
+
+    const userPhoto = props.userInfo.photo.startsWith('blob') ? <img src={`${props.userInfo.photo}`} alt="" className='card__photo' /> : <FontAwesomeIcon icon={faUser} className='iconFaUser fa-icon-center' />
 
     return (
         <>
@@ -63,11 +64,11 @@ function Card(props: { userInfo: TUser }) {
                     {trashIcon} {pencilIcon} {heartIcon}
                 </div>
                 {userPhoto}
-                <section className='card__details'>
-                    <p>{props.userInfo.name} {props.userInfo.surname}</p>
-                    <p>{props.userInfo.id}</p>
+                <div className='card__details'>
+                    <p>{props.userInfo.firstName} {props.userInfo.lastName}</p>
+                    <p>{props.userInfo.phoneNumber}</p>
                     <p>{props.userInfo.emailAddress}</p>
-                </section>
+                </div>
             </div>
         </>
     )

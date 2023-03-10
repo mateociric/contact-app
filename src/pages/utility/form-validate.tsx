@@ -18,7 +18,7 @@ const validator: { [key: string]: any } = {
 
 function minLength(length: number) {
     return (input: HTMLInputElement) => {
-        //will always perform clean up of the old warnings
+        //will always perform clean up of the old warnings 
         input.className = '';
         (input.nextElementSibling as HTMLElement).innerHTML = '';
         if (input.value.trim().length < length) {
@@ -44,6 +44,7 @@ function onlyNum(input: HTMLInputElement) {
 function onlyEmail(input: HTMLInputElement) {
     //there is no minLength() before, reason why clean up of the old warnings is set here
     input.className = '';
+    input.className = 'form__input';
     (input.nextElementSibling as HTMLElement).innerHTML = '';
     if (!input.value.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g)) {
         input.className = 'warning';
@@ -59,12 +60,12 @@ function validateForm(formEl: HTMLFormElement) {
     arrOfFormInputs.forEach(el => {
         //choose validator property based on input.name
         const key = (el as HTMLInputElement).name;
-        for (let prop in validator[key]) {
+        for (const prop in validator[key]) {
             validator[key][prop](el);
         }
     });
 
-    const isEveryInputOk = arrOfFormInputs.every( el => {
+    const isEveryInputOk = arrOfFormInputs.every(el => {
         return el.className !== 'warning'
     });
 

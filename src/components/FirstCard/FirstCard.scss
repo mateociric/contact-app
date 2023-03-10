@@ -1,18 +1,18 @@
 @import 'style/variable.scss';
+@import 'style/utility.scss';
 
-.card {
+.first-card {
     width: 100%;
     aspect-ratio: 1;
+    //to align fa icon vertically and horizontally
+    position: relative;
+
     background-color: $col-card;
     transition: all .25s;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
     &:hover {
-        opacity: .9;
+        box-shadow: 0 0 .8rem 0 #000000bf;
+        cursor: pointer;
     }
 
     &:active {
@@ -20,16 +20,15 @@
     }
 
     &:hover .iconFaCirclePlus {
-        width: 6rem;
-        height: 6rem;
-
+        width: 8rem;
+        height: 8rem;
     }
 
 }
 
 .iconFaCirclePlus {
-    width: 5rem;
-    height: 5rem;
-    color: $col-bg;
+    width: 6rem;
+    height: 6rem;
+    color: $col-white;
     transition: all .25s;
 }

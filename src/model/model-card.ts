@@ -1,7 +1,7 @@
 export type TUser = {
     photo: string;
-    name: string;
-    surname: string;
+    firstName: string;
+    lastName: string;
     fullName?: string;
     phoneNumber: number;
     emailAddress: string;
@@ -14,8 +14,8 @@ class ContactCard {
     static index = 0;
 
     photo: string;
-    name: string;
-    surname: string;
+    firstName: string;
+    lastName: string;
     fullName?: string;
     phoneNumber: number;
     emailAddress: string;
@@ -25,9 +25,9 @@ class ContactCard {
 
     constructor(userInfo: TUser) {
         this.photo = userInfo.photo;
-        this.name = userInfo.name;
-        this.surname = userInfo.surname;
-        this.fullName = `${userInfo.name}_${userInfo.surname}`;
+        this.firstName = userInfo.firstName;
+        this.lastName = userInfo.lastName;
+        this.fullName = `${userInfo.firstName}_${userInfo.lastName}`;
         this.phoneNumber = userInfo.phoneNumber;
         this.emailAddress = userInfo.emailAddress;
         this.isFavorite = userInfo.isFavorite;
