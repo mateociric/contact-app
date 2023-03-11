@@ -36,9 +36,9 @@ function maxLength(length: number) {
     }
 }
 function onlyNum(input: HTMLInputElement) {
-    if (!input.value.match(/^[+][0-9]*$/g)) {
+    if (!input.value.match(/^[0-9]*$/g)) {
         input.className = 'warning';
-        (input.nextElementSibling as HTMLElement).innerHTML = `Min. 9 numbers starting with + sign.`;
+        (input.nextElementSibling as HTMLElement).innerHTML = `Only numbers`;
     }
 }
 function onlyEmail(input: HTMLInputElement) {
@@ -46,7 +46,7 @@ function onlyEmail(input: HTMLInputElement) {
     input.className = '';
     input.className = 'form__input';
     (input.nextElementSibling as HTMLElement).innerHTML = '';
-    if (!input.value.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g)) {
+    if (!input.value.match(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g)) {
         input.className = 'warning';
         (input.nextElementSibling as HTMLElement).innerHTML = `Invalid email address`;
     }
@@ -59,7 +59,7 @@ function validateForm(formEl: HTMLFormElement) {
 
     arrOfFormInputs.forEach(el => {
         //choose validator property based on input.name
-        const key = (el as HTMLInputElement).name;
+        const key = (el as HTMLInputElement).id;
         for (const prop in validator[key]) {
             validator[key][prop](el);
         }

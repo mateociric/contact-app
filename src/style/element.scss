@@ -36,14 +36,15 @@ label {
 
 button {
     width: 25%;
-    border: .1rem solid $col-bg;
+    border: none;
+    background-color: none;
     font-family: $font-main;
     font-size: $fsize-normal;
     line-height: 5rem;
-    color: $col-bg;
-    background-color: $col-card;
+    color: $col-white;
+    background-color: $col-button;
     outline: none;
-    transition: all .25s;
+    transition: box-shadow, transform .25s;
 
     &:hover {
         cursor: pointer;
@@ -52,6 +53,14 @@ button {
 
     &:active {
         transform: scale(.95);
-        box-shadow: none;
     }
+}
+
+img {
+    width: 7rem;
+    aspect-ratio: 1;
+    border-radius: 100%;
+
+    object-fit: cover;
+    clip-path: circle(50% at 50% 50%);
 }

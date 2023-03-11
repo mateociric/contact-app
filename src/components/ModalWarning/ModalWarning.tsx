@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from "react-dom";
 import Backdrop from 'components/ModalWarning/Backdrop';
 import ModalOverlay from 'components/ModalWarning/ModalOverlay';

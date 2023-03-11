@@ -46,15 +46,6 @@
     transition: all .25s;
 }
 
-.card__photo {
-    width: 6rem;
-    aspect-ratio: 1;
-    border-radius: 100%;
-
-    object-fit: cover;
-    clip-path: circle(50% at 50% 50%);
-}
-
 .card__details {
     width: 100%;
     margin-bottom: 1rem;

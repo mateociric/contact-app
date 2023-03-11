@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import 'pages/CardDashboard/CardDashboard.scss';
 import FirstCard from 'components/FirstCard/FirstCard';
 import Card from 'components/Card/Card';
+import 'pages/CardDashboard/CardDashboard.scss';
 import ContactCard from 'model/model-card';
 import ctxStoreValues from 'store/store-context';
 
@@ -15,11 +15,9 @@ function CardDashboard() {
             key={el.id}
         />
     });
-
     const filteredCards = ctxValues.values.usersList.filter((el) => {
         return (el.firstName + el.lastName).toLowerCase().startsWith(ctxValues.values.searchBarValue.toLowerCase());
     })
-
     const cardsInDashboardFiltered = filteredCards.map((el) => {
         return <Card
             userInfo={new ContactCard(el)}

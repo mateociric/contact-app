@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import ctxStoreValues from 'store/store-context';
-import { TUser } from 'model/model-card';
 import './ModalOverlay.scss';
+import { TUser } from 'model/model-card';
+import ctxStoreValues from 'store/store-context';
 
 function ModalOverlay(props: { onClick: Function, userInfo: TUser }) {
 
@@ -16,7 +16,6 @@ function ModalOverlay(props: { onClick: Function, userInfo: TUser }) {
                     () => {
                         props.onClick();
                         ctxValues.updateUserList.removeUser(props.userInfo);
-                        ctxValues.misc.setNumOfDeletedCards();
                     }} className='modaloverlay__footer__button'
                 >YES</button>
                 <button onClick={() => { props.onClick() }} className='modaloverlay__footer__button'>NO</button>

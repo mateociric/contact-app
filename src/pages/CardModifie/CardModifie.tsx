@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom'
 import Form from 'components/Form/Form';
-import validateForm from 'pages/utility/form-validate';
-import ctxStoreValues from 'store/store-context';
 import { TUser } from 'model/model-card';
+import ctxStoreValues from 'store/store-context';
+import validateForm from 'pages/utility/form-validate';
 
 function CardModifie() {
 
     const ctxValues = useContext(ctxStoreValues);
+    const navigate = useNavigate();
 
     function submitHandler(event: any) {
         event.preventDefault();
@@ -23,6 +25,7 @@ function CardModifie() {
                 id: ctxValues.values.userForModifie.id,
             }
             ctxValues.updateUserList.changeUserInfo('info', user);
+            navigate('/');
         }
     }
 

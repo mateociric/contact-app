@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
 import ModalWarning from 'components/ModalWarning/ModalWarning';
-import { TUser } from 'model/model-card';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faPencil, faHeart, faUser } from '@fortawesome/free-solid-svg-icons';
 import 'components/Card/Card.scss';
 import 'style/utility.scss';
+import { TUser } from 'model/model-card';
 import ctxStoreValues from 'store/store-context';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faPencil, faHeart, faUser } from '@fortawesome/free-solid-svg-icons';
 
 function Card(props: { userInfo: TUser }) {
 
@@ -38,16 +38,16 @@ function Card(props: { userInfo: TUser }) {
         onClick={(event) => {
             event.stopPropagation();
             ctxValues.updateUserList.changeUserInfo('favorite', props.userInfo);
-            console.log(props.userInfo.photo);
         }}
         className={isFavoriteMarked}
     />
+    const userPhoto = props.userInfo.photo.startsWith('blob') ?
+        <img src={`${props.userInfo.photo}`} alt="" className='card__photo' /> :
+        <FontAwesomeIcon icon={faUser} className='iconFaUser fa-icon-center' />
 
     function removeModalHandler() {
         ctxValues.updateUserList.changeUserInfo('delete', props.userInfo);
     }
-
-    const userPhoto = props.userInfo.photo.startsWith('blob') ? <img src={`${props.userInfo.photo}`} alt="" className='card__photo' /> : <FontAwesomeIcon icon={faUser} className='iconFaUser fa-icon-center' />
 
     return (
         <>
@@ -63,10 +63,12 @@ function Card(props: { userInfo: TUser }) {
                 <div className='card__edit-icon'>
                     {trashIcon} {pencilIcon} {heartIcon}
                 </div>
-                {userPhoto}
+                <div className='card__photo fa-icon-center'>
+                    {userPhoto}
+                </div>
                 <div className='card__details'>
                     <p>{props.userInfo.firstName} {props.userInfo.lastName}</p>
-                    <p>{props.userInfo.phoneNumber}</p>
+                    <p>{props.userInfo.id}</p>
                     <p>{props.userInfo.emailAddress}</p>
                 </div>
             </div>

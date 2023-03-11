@@ -1,13 +1,15 @@
 import React, { useContext } from 'react'
+import { useLocation } from 'react-router-dom';
+import InputForm from 'components/Form/Input/InputForm';
 import 'components/Form/Form.scss';
 import { TUser } from 'model/model-card';
-import uploadPhoto from 'components/Form/utility/upload-photo';
 import ctxStoreValues from 'store/store-context';
-import InputForm from 'components/Form/Input/InputForm';
+import uploadPhoto from 'components/Form/utility/upload-photo';
 
 function Form(props: { onSubmit: React.FormEventHandler, buttonText: string, userInfo?: TUser }) {
 
     const ctxValues = useContext(ctxStoreValues);
+    const currLocation = useLocation();
 
     return (
         <form onSubmit={props.onSubmit} className='form flex-column-center'>
@@ -17,31 +19,37 @@ function Form(props: { onSubmit: React.FormEventHandler, buttonText: string, use
                     onChange={uploadPhoto}
                     type="file"
                     accept='image/*'
+                    className='form__photo-upload__input'
                 />
-                <img src={ctxValues.values.userForModifie.photo} alt="" />
+                <img
+                    src={currLocation.pathname === '/CardCreate' ? require('photo/default-photo.png') : ctxValues.values.userForModifie.photo}
+                    alt=""
+                    id='userPhoto'
+                    className='form__photo-upload__img fa-icon-center'
+                />
             </div>
 
             <InputForm
                 type={'text'}
-                name={'firstName'}
+                id={'firstName'}
                 placeholder={'first name'}
                 defaultValue={props.userInfo?.firstName}
             />
             <InputForm
                 type={'text'}
-                name={'lastName'}
+                id={'lastName'}
                 placeholder={'last name'}
                 defaultValue={props.userInfo?.lastName}
             />
             <InputForm
                 type={'text'}
-                name={'phoneNumber'}
+                id={'phoneNumber'}
                 placeholder={'phone number'}
                 defaultValue={props.userInfo?.phoneNumber}
             />
             <InputForm
                 type={'text'}
-                name={'emailAddress'}
+                id={'emailAddress'}
                 placeholder='email address'
                 defaultValue={props.userInfo?.emailAddress}
             />

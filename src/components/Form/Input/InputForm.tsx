@@ -1,11 +1,9 @@
-import React from 'react';
-
-function InputForm(props: { type: string, name: string, placeholder: string, defaultValue: string | number | undefined }) {
+function InputForm(props: { type: string, id: string, placeholder: string, defaultValue: string | number | undefined }) {
     return (
         <>
             <input
                 type={props.type}
-                name={props.name}
+                id={props.id}
                 placeholder={props.placeholder}
                 defaultValue={props.defaultValue}
             />

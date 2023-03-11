@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import { TUser } from 'model/model-card';
 import TCtxValues from 'model/model-store-context';
 import { addUser, removeUser, changeUserInfo } from 'store/utility/ctx-functions'
@@ -8,7 +8,7 @@ const ctxValues: TCtxValues = {
         userForModifie: {} as TUser,
         usersList: [],
         searchBarValue: '',
-        numOfDeletedCards: 0,
+        numOfCreatedCards: 0,
     },
     updateUserList: {
         addUser: () => { },
@@ -17,7 +17,7 @@ const ctxValues: TCtxValues = {
     },
     misc: {
         getSearchBarValue: () => { },
-        setNumOfDeletedCards: () => { },
+        setNumOfCreatedCards: () => { },
         getUserForModifie: () => { },
     },
 }
@@ -29,9 +29,7 @@ export function CtxValuesProvider(props: { children: any }) {
     const [userForModifie, setUserForModifie] = useState<TUser>({} as TUser);
     const [usersList, setUsersList] = useState<TUser[]>([]);
     const [searchBarValue, setSearchBarValue] = useState('');
-    const [numOfDeletedCards, setNumOfDeletedCards] = useState(0);
-
-    console.log(userForModifie);
+    const [numOfCreatedCards, setNumOfCreatedCards] = useState(0);
 
     return (
         <>
@@ -40,7 +38,7 @@ export function CtxValuesProvider(props: { children: any }) {
                     userForModifie,
                     usersList,
                     searchBarValue,
-                    numOfDeletedCards,
+                    numOfCreatedCards,
                 },
                 updateUserList: {
                     addUser: addUser(setUsersList),
@@ -49,7 +47,7 @@ export function CtxValuesProvider(props: { children: any }) {
                 },
                 misc: {
                     getSearchBarValue: (str: string) => setSearchBarValue(() => str),
-                    setNumOfDeletedCards: () => setNumOfDeletedCards(() => numOfDeletedCards + 1),
+                    setNumOfCreatedCards: () => setNumOfCreatedCards(() => numOfCreatedCards + 1),
                     getUserForModifie: (user: TUser) => setUserForModifie(() => user),
                 },
             }}

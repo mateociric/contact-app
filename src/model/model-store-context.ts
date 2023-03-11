@@ -5,7 +5,7 @@ type TCtxValues = {
         userForModifie: TUser,
         usersList: TUser[],
         searchBarValue: string,
-        numOfDeletedCards: number,
+        numOfCreatedCards: number,
     }
     updateUserList: {
         addUser: Function,
@@ -14,7 +14,7 @@ type TCtxValues = {
     }
     misc: {
         getSearchBarValue: Function,
-        setNumOfDeletedCards: Function,
+        setNumOfCreatedCards: Function,
         getUserForModifie: Function,
     }
 }

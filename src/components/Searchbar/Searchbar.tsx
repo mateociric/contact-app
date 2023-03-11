@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import 'components/Searchbar/Searchbar.scss';
 import { useLocation } from 'react-router-dom';
+import 'components/Searchbar/Searchbar.scss';
 import ctxStoreValues from 'store/store-context';
 
 function Seacrbar() {
@@ -9,7 +9,7 @@ function Seacrbar() {
     const currLocation = useLocation();
 
     function inputChangeHandler(event: any) {
-        //removing white spaces dynamically
+        //removing white spaces
         event.target.value = event.target.value.replace(/^[ \t]+|[ \t]+$/gm, "")
         ctxValues.misc.getSearchBarValue(event.target.value);
     }
