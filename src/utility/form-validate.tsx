@@ -23,7 +23,11 @@ function minLength(length: number) {
         (input.nextElementSibling as HTMLElement).innerHTML = '';
         if (input.value.trim().length < length) {
             input.className = 'warning';
-            (input.nextElementSibling as HTMLElement).innerHTML = `Min. ${length} characters are required`;
+            if (input.id !== 'phoneNumber') {
+                (input.nextElementSibling as HTMLElement).innerHTML = `Min. ${length} characters are required`;
+            } else {
+                (input.nextElementSibling as HTMLElement).innerHTML = `Min. ${length} numbers are required`;
+            }
         }
     }
 }

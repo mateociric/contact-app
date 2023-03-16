@@ -5,16 +5,16 @@ type TCtxValues = {
         userForModifie: TUser,
         usersList: TUser[],
         searchBarValue: string,
-        numOfCreatedCards: number,
+        isAppRunFirstTime: boolean,
     }
     updateUserList: {
         addUser: Function,
         removeUser: Function,
         changeUserInfo: Function,
+        setLoadUsersList: Function,
     }
     misc: {
         getSearchBarValue: Function,
-        setNumOfCreatedCards: Function,
         getUserForModifie: Function,
     }
 }

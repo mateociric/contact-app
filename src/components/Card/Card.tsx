@@ -7,6 +7,7 @@ import { TUser } from 'model/model-card';
 import ctxStoreValues from 'store/store-context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPencil, faHeart, faUser } from '@fortawesome/free-solid-svg-icons';
+import DB_OPERATIONS from 'utility/db';
 
 function Card(props: { userInfo: TUser }) {
 
@@ -38,12 +39,14 @@ function Card(props: { userInfo: TUser }) {
         onClick={(event) => {
             event.stopPropagation();
             ctxValues.updateUserList.changeUserInfo('favorite', props.userInfo);
+            DB_OPERATIONS.isFavoriteUser(props.userInfo);
         }}
         className={isFavoriteMarked}
     />
-    const userPhoto = props.userInfo.photo.startsWith('blob') ?
-        <img src={`${props.userInfo.photo}`} alt="" className='card__photo' /> :
-        <FontAwesomeIcon icon={faUser} className='iconFaUser fa-icon-center' />
+    const userPhoto = props.userInfo.photo === require('photo/default-photo.png') ?
+        <FontAwesomeIcon icon={faUser} className='iconFaUser fa-icon-center' /> :
+        <img src={`${props.userInfo.photo}`} alt="" className='card__photo' />
+
 
     function removeModalHandler() {
         ctxValues.updateUserList.changeUserInfo('delete', props.userInfo);
@@ -68,7 +71,7 @@ function Card(props: { userInfo: TUser }) {
                 </div>
                 <div className='card__details'>
                     <p>{props.userInfo.firstName} {props.userInfo.lastName}</p>
-                    <p>{props.userInfo.id}</p>
+                    <p>{props.userInfo.phoneNumber}</p>
                     <p>{props.userInfo.emailAddress}</p>
                 </div>
             </div>

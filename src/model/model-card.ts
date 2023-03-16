@@ -3,7 +3,7 @@ export type TUser = {
     firstName: string;
     lastName: string;
     fullName?: string;
-    phoneNumber: number;
+    phoneNumber: string;
     emailAddress: string;
     isFavorite: boolean;
     isDelete: boolean
@@ -17,7 +17,7 @@ class ContactCard {
     firstName: string;
     lastName: string;
     fullName?: string;
-    phoneNumber: number;
+    phoneNumber: string;
     emailAddress: string;
     isFavorite: boolean;
     isDelete: boolean;

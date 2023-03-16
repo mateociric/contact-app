@@ -66,3 +66,15 @@
     height: 5rem;
     color: $col-white;
 }
+
+@media (max-width: 40rem) {
+    .iconFaUser {
+        width: 8rem;
+        height: 8rem;
+    }
+
+    img {
+        width: 10rem;
+        height: 10rem;
+    }
+}

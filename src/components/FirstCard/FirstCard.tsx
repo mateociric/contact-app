@@ -1,4 +1,3 @@
-import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import 'components/FirstCard/FirstCard.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

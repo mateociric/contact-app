@@ -1,4 +1,4 @@
-function InputForm(props: { type: string, id: string, placeholder: string, defaultValue: string | number | undefined }) {
+function InputForm(props: { type: string, id: string, placeholder: string, defaultValue: string | undefined }) {
     return (
         <>
             <input

@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import Form from 'components/Form/Form';
 import { TUser } from 'model/model-card';
 import ctxStoreValues from 'store/store-context';
-import validateForm from 'pages/utility/form-validate';
+import validateForm from 'utility/form-validate';
+import DB_OPERATIONS from 'utility/db';
 
 function CardModifie() {
 
@@ -25,6 +26,7 @@ function CardModifie() {
                 id: ctxValues.values.userForModifie.id,
             }
             ctxValues.updateUserList.changeUserInfo('info', user);
+            DB_OPERATIONS.modifieUserForDB(user);
             navigate('/');
         }
     }

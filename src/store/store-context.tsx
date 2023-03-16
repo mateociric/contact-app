@@ -8,16 +8,16 @@ const ctxValues: TCtxValues = {
         userForModifie: {} as TUser,
         usersList: [],
         searchBarValue: '',
-        numOfCreatedCards: 0,
+        isAppRunFirstTime: false,
     },
     updateUserList: {
         addUser: () => { },
         removeUser: () => { },
         changeUserInfo: () => { },
+        setLoadUsersList: () => { },
     },
     misc: {
         getSearchBarValue: () => { },
-        setNumOfCreatedCards: () => { },
         getUserForModifie: () => { },
     },
 }
@@ -29,7 +29,7 @@ export function CtxValuesProvider(props: { children: any }) {
     const [userForModifie, setUserForModifie] = useState<TUser>({} as TUser);
     const [usersList, setUsersList] = useState<TUser[]>([]);
     const [searchBarValue, setSearchBarValue] = useState('');
-    const [numOfCreatedCards, setNumOfCreatedCards] = useState(0);
+    const [isAppRunFirstTime, setIsAppRunFirstTime] = useState(false);
 
     return (
         <>
@@ -38,16 +38,20 @@ export function CtxValuesProvider(props: { children: any }) {
                     userForModifie,
                     usersList,
                     searchBarValue,
-                    numOfCreatedCards,
+                    isAppRunFirstTime,
                 },
                 updateUserList: {
                     addUser: addUser(setUsersList),
                     removeUser: removeUser(usersList, setUsersList),
                     changeUserInfo: changeUserInfo(usersList, setUsersList),
+                    setLoadUsersList: (savedUsersListForFetching: TUser[]) => {
+                        setUsersList(() => savedUsersListForFetching);
+                        //set isAppRunFirstTime to true when the dada is fetched
+                        setIsAppRunFirstTime(() => true);
+                    },
                 },
                 misc: {
                     getSearchBarValue: (str: string) => setSearchBarValue(() => str),
-                    setNumOfCreatedCards: () => setNumOfCreatedCards(() => numOfCreatedCards + 1),
                     getUserForModifie: (user: TUser) => setUserForModifie(() => user),
                 },
             }}

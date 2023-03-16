@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import './ModalOverlay.scss';
 import { TUser } from 'model/model-card';
 import ctxStoreValues from 'store/store-context';
+import DB_OPERATIONS from 'utility/db';
 
 function ModalOverlay(props: { onClick: Function, userInfo: TUser }) {
 
@@ -16,6 +17,7 @@ function ModalOverlay(props: { onClick: Function, userInfo: TUser }) {
                     () => {
                         props.onClick();
                         ctxValues.updateUserList.removeUser(props.userInfo);
+                        DB_OPERATIONS.deleteUserFromDB(props.userInfo)
                     }} className='modaloverlay__footer__button'
                 >YES</button>
                 <button onClick={() => { props.onClick() }} className='modaloverlay__footer__button'>NO</button>

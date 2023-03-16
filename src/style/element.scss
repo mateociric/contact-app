@@ -5,6 +5,7 @@ body {
 
 main {
     width: 60%;
+    min-width: 30rem;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -13,6 +14,7 @@ main {
 
 input {
     width: 50%;
+    min-width: 20rem;
     padding-left: 1rem;
     border: .1rem solid $col-black;
     font-family: $font-main;
@@ -24,6 +26,7 @@ input {
 
 label {
     width: 70%;
+    min-width: 100%;
     height: 4rem;
     display: flex;
     justify-content: center;
@@ -36,6 +39,7 @@ label {
 
 button {
     width: 25%;
+    min-width: 20rem;
     border: none;
     background-color: none;
     font-family: $font-main;

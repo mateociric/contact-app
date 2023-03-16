@@ -8,8 +8,10 @@
     flex-direction: column;
 
     position: fixed;
-    top: 30%;
-    left: 30%;
+    //center it
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 2;
 
     font-family: $font-main;
@@ -40,4 +42,13 @@
     border: none;
     margin-left: 1.5rem;
     margin-right: 1.5rem;
+}
+
+@media (max-width: 40rem) {
+    .modaloverlay {
+        width: 40rem;
+    }
+    button {
+        min-width: 15rem;
+    }
 }
