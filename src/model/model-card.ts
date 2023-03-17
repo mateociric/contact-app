@@ -11,8 +11,6 @@ export type TUser = {
 }
 
 class ContactCard {
-    static index = 0;
-
     photo: string;
     firstName: string;
     lastName: string;

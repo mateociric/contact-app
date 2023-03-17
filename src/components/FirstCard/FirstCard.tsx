@@ -5,6 +5,7 @@ import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
 function FirstCard() {
     const navigate = useNavigate();
+    
     return (
         <>
             <div className='first-card' onClick={() => navigate('/CardCreate')}>

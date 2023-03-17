@@ -20,7 +20,10 @@ function ModalOverlay(props: { onClick: Function, userInfo: TUser }) {
                         DB_OPERATIONS.deleteUserFromDB(props.userInfo)
                     }} className='modaloverlay__footer__button'
                 >YES</button>
-                <button onClick={() => { props.onClick() }} className='modaloverlay__footer__button'>NO</button>
+                <button
+                    onClick={() => { props.onClick() }}
+                    className='modaloverlay__footer__button'
+                >NO</button>
             </footer>
         </div>
     )

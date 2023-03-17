@@ -4,7 +4,6 @@ import 'components/Searchbar/Searchbar.scss';
 import ctxStoreValues from 'store/store-context';
 
 function Seacrbar() {
-
     const ctxValues = useContext(ctxStoreValues);
     const currLocation = useLocation();
 

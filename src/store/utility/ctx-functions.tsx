@@ -7,7 +7,6 @@ function addUser(setUsersList: Function) {
         });
     }
 }
-
 function removeUser(usersList: TUser[], setUsersList: Function) {
     return (user: TUser) => {
         const modifiedArr = usersList.filter(el => {
@@ -16,7 +15,6 @@ function removeUser(usersList: TUser[], setUsersList: Function) {
         setUsersList(() => modifiedArr);
     }
 }
-
 function changeUserInfo(usersList: TUser[], setUsersList: Function) {
     return (type: 'favorite' | 'delete' | 'info', user: TUser) => {
         const modifiedArr = usersList.map(el => {

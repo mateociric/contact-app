@@ -4,6 +4,7 @@ import ModalOverlay from 'components/ModalWarning/ModalOverlay';
 import { TUser } from 'model/model-card';
 
 function ModalWarning(props: { onClick: Function, userInfo: TUser }) {
+    
     return (
         <>
             {ReactDOM.createPortal(<Backdrop onClick={props.onClick} />, document.getElementById('backdrop-root') as HTMLElement)}

@@ -7,9 +7,7 @@ import ctxStoreValues from 'store/store-context';
 import DB_OPERATIONS from 'utility/db';
 
 function CardDashboard() {
-
     const ctxValues = useContext(ctxStoreValues);
-
     //Fetch data only once, when app is started
     if (!ctxValues.values.isAppRunFirstTime) {
         DB_OPERATIONS.loadUsersList(ctxValues);

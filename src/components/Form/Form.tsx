@@ -7,7 +7,6 @@ import ctxStoreValues from 'store/store-context';
 import uploadPhoto from 'components/Form/utility/upload-photo';
 
 function Form(props: { onSubmit: React.FormEventHandler, buttonText: string, userInfo?: TUser }) {
-
     const ctxValues = useContext(ctxStoreValues);
     const currLocation = useLocation();
 
@@ -22,7 +21,9 @@ function Form(props: { onSubmit: React.FormEventHandler, buttonText: string, use
                     className='form__photo-upload__input'
                 />
                 <img
-                    src={currLocation.pathname === '/CardCreate' ? require('photo/default-photo.png') : ctxValues.values.userForModifie.photo}
+                    src={currLocation.pathname === '/CardCreate' ?
+                        require('photo/default-photo.png') :
+                        ctxValues.values.userForModifie.photo}
                     alt=""
                     id='userPhoto'
                     className='form__photo-upload__img fa-icon-center'

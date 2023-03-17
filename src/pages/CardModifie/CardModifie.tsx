@@ -7,7 +7,6 @@ import validateForm from 'utility/form-validate';
 import DB_OPERATIONS from 'utility/db';
 
 function CardModifie() {
-
     const ctxValues = useContext(ctxStoreValues);
     const navigate = useNavigate();
 
@@ -32,7 +31,6 @@ function CardModifie() {
     }
 
     return <Form onSubmit={submitHandler} buttonText={'Modifie User'} userInfo={ctxValues.values.userForModifie} />
-
 }
 
 export default CardModifie;

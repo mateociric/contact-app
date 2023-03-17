@@ -5,7 +5,6 @@ import ContactCard from 'model/model-card';
 import ctxStoreValues from 'store/store-context';
 
 function CardFavorite() {
-
     const ctxValues = useContext(ctxStoreValues);
 
     const filteredCards = ctxValues.values.usersList.filter(el => {
@@ -26,7 +25,6 @@ function CardFavorite() {
             {cardsInFavorite.length ? favoriteFull : favoriteEmpty}
         </>
     )
-
 }
 
 export default CardFavorite;

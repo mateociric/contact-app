@@ -1,4 +1,5 @@
 import { TUser } from 'model/model-card';
+import TCtxValues from 'model/model-store-context';
 import axios from 'axios';
 
 const DB_OPERATIONS = {
@@ -21,7 +22,7 @@ async function modifieUserForDB(user: TUser) {
     await axios.delete(`${URL}/${user.id}`);
     await axios.post(URL, user);
 }
-async function loadUsersList(ctxValues: any) {
+async function loadUsersList(ctxValues: TCtxValues) {
     const res = await axios.get(URL);
     await ctxValues.updateUserList.setLoadUsersList(res.data);
 }

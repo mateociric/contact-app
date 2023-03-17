@@ -3,10 +3,10 @@ import Form from 'components/Form/Form';
 import { TUser } from 'model/model-card';
 import ctxStoreValues from 'store/store-context';
 import validateForm from 'utility/form-validate';
+import findMaxId from 'pages/CardCreate/utility/find-max-id';
 import DB_OPERATIONS from 'utility/db';
 
 function CreateCard() {
-
     const ctxValues = useContext(ctxStoreValues);
 
     function submitHandler(event: any) {
@@ -22,10 +22,13 @@ function CreateCard() {
                 isFavorite: false,
                 isDelete: false,
                 //avoid same id
-                id: !ctxValues.values.usersList.length ? 1 : (ctxValues.values.usersList[ctxValues.values.usersList.length - 1].id) + 1
+                id: !ctxValues.values.usersList.length ?
+                    1 :
+                    findMaxId(ctxValues.values.usersList)
             }
             ctxValues.updateUserList.addUser(user);
             DB_OPERATIONS.saveUserToDB(user);
+            (document.getElementById('userPhoto') as HTMLImageElement).src = require('photo/default-photo.png');
             document.querySelector('form')!.reset();
         }
     }
