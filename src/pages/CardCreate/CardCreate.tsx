@@ -27,7 +27,7 @@ function CreateCard() {
                     findMaxId(ctxValues.values.usersList)
             }
             ctxValues.updateUserList.addUser(user);
-            DB_OPERATIONS.saveUserToDB(user);
+            DB_OPERATIONS.saveUser(user);
             (document.getElementById('userPhoto') as HTMLImageElement).src = require('photo/default-photo.png');
             document.querySelector('form')!.reset();
         }

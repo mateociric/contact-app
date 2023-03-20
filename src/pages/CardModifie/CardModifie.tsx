@@ -25,7 +25,7 @@ function CardModifie() {
                 id: ctxValues.values.userForModifie.id,
             }
             ctxValues.updateUserList.changeUserInfo('info', user);
-            DB_OPERATIONS.modifieUserForDB(user);
+            DB_OPERATIONS.modifieUser(user, 'user');
             navigate('/');
         }
     }

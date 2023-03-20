@@ -17,7 +17,7 @@ function ModalOverlay(props: { onClick: Function, userInfo: TUser }) {
                     () => {
                         props.onClick();
                         ctxValues.updateUserList.removeUser(props.userInfo);
-                        DB_OPERATIONS.deleteUserFromDB(props.userInfo)
+                        DB_OPERATIONS.deleteUser(props.userInfo)
                     }} className='modaloverlay__footer__button'
                 >YES</button>
                 <button
