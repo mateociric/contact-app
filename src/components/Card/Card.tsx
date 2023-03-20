@@ -70,7 +70,7 @@ function Card(props: { userInfo: TUser }) {
                 </div>
                 <div className='card__details'>
                     <p>{props.userInfo.firstName} {props.userInfo.lastName}</p>
-                    <p>{props.userInfo.phoneNumber}</p>
+                    <p>{props.userInfo.id}</p>
                     <p>{props.userInfo.emailAddress}</p>
                 </div>
             </div>

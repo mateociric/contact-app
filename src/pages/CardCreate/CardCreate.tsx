@@ -3,7 +3,6 @@ import Form from 'components/Form/Form';
 import { TUser } from 'model/model-card';
 import ctxStoreValues from 'store/store-context';
 import validateForm from 'utility/form-validate';
-import findMaxId from 'pages/CardCreate/utility/find-max-id';
 import DB_OPERATIONS from 'utility/db';
 
 function CreateCard() {
@@ -24,7 +23,7 @@ function CreateCard() {
                 //avoid same id
                 id: !ctxValues.values.usersList.length ?
                     1 :
-                    findMaxId(ctxValues.values.usersList)
+                    ctxValues.values.usersList[ctxValues.values.usersList.length - 1].id + 1
             }
             ctxValues.updateUserList.addUser(user);
             DB_OPERATIONS.saveUser(user);
