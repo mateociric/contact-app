@@ -4,6 +4,7 @@ function InputForm(props: { type: string, id: string, placeholder: string, defau
             <input
                 type={props.type}
                 id={props.id}
+                name={props.id}
                 placeholder={props.placeholder}
                 defaultValue={props.defaultValue}
             />
