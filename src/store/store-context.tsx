@@ -24,7 +24,7 @@ const ctxValues: TCtxValues = {
 
 const ctxStoreValues = React.createContext(ctxValues);
 
-export function CtxValuesProvider(props: { children: any }) {
+export function CtxValuesProvider(props: { children: React.ReactNode }) {
     const [userForModifie, setUserForModifie] = useState<TUser>({} as TUser);
     const [usersList, setUsersList] = useState<TUser[]>([]);
     const [searchBarValue, setSearchBarValue] = useState('');

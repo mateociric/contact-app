@@ -8,6 +8,7 @@ import ctxStoreValues from 'store/store-context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPencil, faHeart, faUser } from '@fortawesome/free-solid-svg-icons';
 import DB_OPERATIONS from 'utility/db';
+import defaultPhoto from 'photo/default-photo.png';
 
 function Card(props: { userInfo: TUser }) {
     const navigate = useNavigate();
@@ -42,7 +43,7 @@ function Card(props: { userInfo: TUser }) {
         }}
         className={isFavoriteMarked}
     />
-    const userPhoto = props.userInfo.photo === require('photo/default-photo.png') ?
+    const userPhoto = props.userInfo.photo === defaultPhoto ?
         <FontAwesomeIcon icon={faUser} className='iconFaUser fa-icon-center' /> :
         <img src={`${props.userInfo.photo}`} alt="" className='card__photo' />
 
@@ -70,7 +71,7 @@ function Card(props: { userInfo: TUser }) {
                 </div>
                 <div className='card__details'>
                     <p>{props.userInfo.firstName} {props.userInfo.lastName}</p>
-                    <p>{props.userInfo.id}</p>
+                    <p>{props.userInfo.phoneNumber}</p>
                     <p>{props.userInfo.emailAddress}</p>
                 </div>
             </div>

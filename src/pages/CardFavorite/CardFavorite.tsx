@@ -6,7 +6,7 @@ import ctxStoreValues from 'store/store-context';
 
 function CardFavorite() {
     const ctxValues = useContext(ctxStoreValues);
-
+    
     const filteredCards = ctxValues.values.usersList.filter(el => {
         return el.isFavorite;
     });

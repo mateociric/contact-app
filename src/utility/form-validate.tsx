@@ -23,7 +23,7 @@ function minLength(length: number) {
         (input.nextElementSibling as HTMLElement).innerHTML = '';
         if (input.value.trim().length < length) {
             input.className = 'warning';
-            if (input.id !== 'phoneNumber') {
+            if (input.name !== 'phoneNumber') {
                 (input.nextElementSibling as HTMLElement).innerHTML = `Min. ${length} characters are required`;
             } else {
                 (input.nextElementSibling as HTMLElement).innerHTML = `Min. ${length} numbers are required`;
@@ -63,7 +63,7 @@ function validateForm(formEl: HTMLFormElement) {
 
     arrOfFormInputs.forEach(el => {
         //choose validator property based on input.name
-        const key = (el as HTMLInputElement).id;
+        const key = (el as HTMLInputElement).name;
         for (const prop in validator[key]) {
             validator[key][prop](el);
         }

@@ -1,63 +1,54 @@
-import React, { useContext } from 'react'
-import { useLocation } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
 import InputForm from 'components/Form/Input/InputForm';
 import 'components/Form/Form.scss';
 import { TUser } from 'model/model-card';
 import ctxStoreValues from 'store/store-context';
 import uploadPhoto from 'components/Form/utility/upload-photo';
+import defaultPhoto from 'photo/default-photo.png';
 
-function Form(props: { onSubmit: React.FormEventHandler, buttonText: string, userInfo?: TUser }) {
+function Form(props: { onSubmit: React.FormEventHandler, buttonText: string, userInfo?: TUser, srcPhoto: string }) {
+    const [uploadedPhoto, setUploadedPhoto] = useState<boolean>(false)
     const ctxValues = useContext(ctxStoreValues);
-    const currLocation = useLocation();
+    //if photo is uploaded by util. func. uploadPhoto display it, otherwise show image based on props.srcPhoto value
+    const photoToBeDisplayed = uploadedPhoto || (props.srcPhoto === 'defaultPhoto' ? defaultPhoto : ctxValues.values.userForModifie.photo);
 
     return (
         <form onSubmit={props.onSubmit} className='form flex-column-center'>
-
             <div className='form__photo-upload flex-row-center' >
                 <input
-                    onChange={uploadPhoto}
+                    onChange={(event: any) => uploadPhoto(event, setUploadedPhoto)}
                     type="file"
                     accept='image/*'
                     className='form__photo-upload__input'
                 />
-                <img
-                    src={currLocation.pathname === '/CardCreate' ?
-                        require('photo/default-photo.png') :
-                        ctxValues.values.userForModifie.photo}
-                    alt=""
-                    id='userPhoto'
-                    className='form__photo-upload__img fa-icon-center'
-                />
+                <img src={photoToBeDisplayed} alt="" className={'form__photo-upload__img fa-icon-center'} />
             </div>
-
             <InputForm
                 type={'text'}
-                id={'firstName'}
+                name={'firstName'}
                 placeholder={'first name'}
                 defaultValue={props.userInfo?.firstName}
             />
             <InputForm
                 type={'text'}
-                id={'lastName'}
+                name={'lastName'}
                 placeholder={'last name'}
                 defaultValue={props.userInfo?.lastName}
             />
             <InputForm
                 type={'text'}
-                id={'phoneNumber'}
+                name={'phoneNumber'}
                 placeholder={'phone number'}
                 defaultValue={props.userInfo?.phoneNumber}
             />
             <InputForm
                 type={'text'}
-                id={'emailAddress'}
+                name={'emailAddress'}
                 placeholder='email address'
                 defaultValue={props.userInfo?.emailAddress}
             />
-
             <button type='submit'>{props.buttonText}</button>
-
-        </form>
+        </form >
     )
 }
 

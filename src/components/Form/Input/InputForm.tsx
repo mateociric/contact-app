@@ -1,9 +1,10 @@
-function InputForm(props: { type: string, id: string, placeholder: string, defaultValue: string | undefined }) {
+function InputForm(props: { type: string, name: string, placeholder: string, defaultValue: string | undefined }) {
+
     return (
         <>
             <input
                 type={props.type}
-                id={props.id}
+                name={props.name}
                 placeholder={props.placeholder}
                 defaultValue={props.defaultValue}
             />

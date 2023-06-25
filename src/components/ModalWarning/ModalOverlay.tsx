@@ -5,7 +5,6 @@ import ctxStoreValues from 'store/store-context';
 import DB_OPERATIONS from 'utility/db';
 
 function ModalOverlay(props: { onClick: Function, userInfo: TUser }) {
-
     const ctxValues = useContext(ctxStoreValues);
 
     return (

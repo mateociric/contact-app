@@ -30,7 +30,12 @@ function CardModifie() {
         }
     }
 
-    return <Form onSubmit={submitHandler} buttonText={'Modifie User'} userInfo={ctxValues.values.userForModifie} />
+    return <Form
+        onSubmit={submitHandler}
+        buttonText={'Modifie User'}
+        userInfo={ctxValues.values.userForModifie}
+        srcPhoto={'userPhoto'}
+    />
 }
 
 export default CardModifie;
